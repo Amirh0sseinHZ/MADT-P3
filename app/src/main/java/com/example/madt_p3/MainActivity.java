@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
      * Calculates the request and writes the output to the I/O
      */
     @SuppressLint("SetTextI18n")
-    private void Calculate() {
+    private void Calculate() throws Exception {
         double result;
         double number2 = parseFloat(String.valueOf(eTCalculatorIO.getText()));
         switch (operator) {
@@ -144,7 +144,11 @@ public class MainActivity extends AppCompatActivity {
         if( ! isInputEmpty) {
             if( ! isOperatorEmpty) {
                 // if we already have an operator existing from the previous action
-                Calculate();
+                try {
+                    Calculate();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 operator = "";
                 return;
             }
@@ -174,7 +178,11 @@ public class MainActivity extends AppCompatActivity {
         if( ! isInputEmpty) {
             number1 = parseFloat(String.valueOf(eTCalculatorIO.getText()));
             operator = clickedAction;
-            Calculate();
+            try {
+                Calculate();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             operator = "";
         }
     }
@@ -236,7 +244,11 @@ public class MainActivity extends AppCompatActivity {
         boolean isOperatorEmpty = operator.equals("");
 
         if( ! isInputEmpty && ! isOperatorEmpty) {
-            Calculate();
+            try {
+                Calculate();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             operator = "";
         }
     }
