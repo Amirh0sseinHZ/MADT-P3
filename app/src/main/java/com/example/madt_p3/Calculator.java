@@ -46,7 +46,10 @@ public class Calculator {
      *
      * @return  the quotient
      */
-    public static double Divide(double a, double b) {
+    public static double Divide(double a, double b) throws Exception {
+        if(b == 0) {
+            throw new Exception("Division by 0 is undefined");
+        }
         return a / b;
     }
 
@@ -57,7 +60,11 @@ public class Calculator {
      *
      * @return  the square root
      */
-    public static double Sqrt(double a) {
+    public static double Sqrt(double a) throws Exception {
+        if(a < 0) {
+            throw new Exception("Square root of negative numbers is undefined");
+        }
+
         return Math.sqrt(a);
     }
 
